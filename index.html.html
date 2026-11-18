@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="مِهن منصة سعودية تساعد طلاب وطالبات المرحلة الثانوية على اكتشاف ميولهم واستكشاف التخصصات الجامعية والتخطيط لمستقبلهم المهني.">
+<title>مِهن</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Cairo:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#14246B;
+  --ink:#1B2B6B;
+  --blue:#2F6FE4;
+  --blue-soft:#5B8DEF;
+  --blue-deep:#2D5FC4;
+  --line:#BFD1F7;
+  --text:#3A4670;
+  --muted:#4A5578;
+  --bg:#F6F8FF;
+  --tint:#E3ECFF;
+  --white:#fff;
+  --display:'Cairo',system-ui,sans-serif;
+  --body:'Almarai','Cairo',system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.8;-webkit-text-size-adjust:100%}
+a{color:var(--ink)}
+a:hover{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+h1,h2,h3,h4,p{margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-left,0px))}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--ink)}
+.nav ul{list-style:none;margin:0 auto;padding:6px 8px;max-width:1100px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 4px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;font-family:var(--display);font-weight:600;font-size:16px;text-decoration:underline;text-underline-offset:5px}
+.nav a[aria-current="page"]{color:var(--blue);font-weight:800}
+
+/* shared */
+.page{min-height:60vh;background:linear-gradient(180deg,var(--page-tint,#E9F0FF) 0,var(--bg) 340px,#fff 100%)}
+.sparkle{display:inline-block;vertical-align:middle}
+.divider{display:flex;align-items:center;gap:12px;width:min(320px,100%);margin-inline:auto}
+.divider i{flex:1;height:1px;background:#8FB1F5}
+.pillhead{display:inline-block;margin:0;padding:6px 28px;border-radius:999px;background:linear-gradient(180deg,#D6E3FF,#E6EEFF);font-family:var(--display);font-weight:800;font-size:clamp(20px,3vw,26px);color:var(--navy);line-height:1.5}
+.box{position:relative;margin-top:36px;padding:36px 22px 22px;border:1.5px solid var(--line);border-radius:30px;background:rgba(255,255,255,.75)}
+.box>.pillhead{position:absolute;top:-24px;left:50%;transform:translateX(-50%);white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis}
+.box p{text-align:center;color:var(--ink);font-size:clamp(17px,2.2vw,21px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 44px;border:0;border-radius:999px;background:linear-gradient(180deg,#4A7FE6,#2D4FB4);color:#fff;font-family:var(--display);font-weight:800;font-size:22px;text-decoration:underline;text-underline-offset:6px;cursor:pointer;box-shadow:0 8px 20px rgba(45,79,180,.3)}
+.btn:hover{color:#fff;filter:brightness(1.08)}
+.title-xl{font-family:var(--display);font-weight:800;color:var(--navy);line-height:1.25}
+.lead{color:var(--text);font-size:clamp(18px,2.4vw,24px);line-height:1.9}
+.accent{color:var(--blue)}
+.sec-head{text-align:center;padding:56px 0 8px}
+.sec-head .title-xl{font-size:clamp(36px,6vw,64px)}
+.sec-head .lead{margin:12px auto 0;max-width:34ch}
+.under{display:block;margin:6px auto 0}
+.notice{margin:20px auto 0;max-width:34rem;padding:14px 20px;border:1.5px solid var(--line);border-radius:20px;background:#fff;text-align:center;color:var(--text)}
+.notice[hidden]{display:none}
+
+/* home */
+.hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px 48px;padding:56px 0 72px}
+.hero-text{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.hero-art{flex:1 1 340px;min-width:0;display:flex;justify-content:center}
+.hero-art svg{width:100%;max-width:520px;height:auto}
+.hero h1{font-size:clamp(72px,12vw,128px);line-height:1.1}
+.hero .tag{font-size:clamp(28px,4.4vw,48px)}
+.values{display:flex;flex-wrap:wrap;margin-top:28px}
+.value{flex:1 1 240px;min-width:0;display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 24px;text-align:center}
+.value+.value{border-inline-start:1px solid var(--line)}
+.value .ic{width:88px;height:72px;border-radius:50%;background:var(--tint);display:flex;align-items:center;justify-content:center}
+.value h3{font-family:var(--display);font-weight:800;font-size:24px;color:var(--navy)}
+.value p{color:var(--muted);font-size:17px;max-width:20ch}
+.closing{margin-top:48px;padding:44px 16px 64px;text-align:center;background:linear-gradient(180deg,#fff,#DCE7FF)}
+.closing p{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,32px);color:var(--navy);margin-top:14px}
+
+/* compass */
+.compass{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px 40px;padding:48px 0 12px}
+.compass .txt{flex:1 1 320px;min-width:0}
+.compass .art{flex:1 1 300px;min-width:0;display:flex;justify-content:center}
+.compass .art svg{width:100%;max-width:420px;height:auto}
+.center{text-align:center}
+.steps3{display:flex;flex-wrap:wrap;margin-top:6px}
+.steps3>div{flex:1 1 200px;min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 12px;text-align:center}
+.steps3>div+div{border-inline-start:1px solid var(--line)}
+.steps3 .ic{width:56px;height:56px;border-radius:50%;background:var(--tint);display:flex;align-items:center;justify-content:center}
+.num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--display);font-weight:800;font-size:14px}
+.steps3 p{font-size:16px;color:var(--ink)}
+
+/* majors */
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px;margin-top:28px}
+.mcard{display:flex;align-items:center;gap:14px;min-width:0;padding:16px 18px;border:1.5px solid var(--c2,#BFD1F7);border-radius:22px;background:var(--c1,#E6EEFF);text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
+a.mcard:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,36,107,.12);color:var(--ink)}
+.mcard .mi{flex:none;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;color:var(--c3,#2D5FC4)}
+.mcard h3{font-family:var(--display);font-weight:800;font-size:22px;color:var(--navy);line-height:1.4}
+.mcard p{font-size:16px;color:var(--muted);line-height:1.6}
+.mcard .soon{display:inline-block;margin-top:4px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.8);font-size:13px;color:var(--muted)}
+.mcard>div:last-child{min-width:0}
+
+/* major detail */
+.back{display:inline-flex;align-items:center;min-height:44px;margin-top:16px;font-family:var(--display);font-weight:600}
+.mhead{display:flex;flex-wrap:wrap;align-items:center;gap:20px 36px;justify-content:center;padding:20px 0 6px}
+.mhead .mi{width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.75);border:2px solid var(--c2);display:flex;align-items:center;justify-content:center;color:var(--c3)}
+.mhead .mi svg{width:76px;height:76px}
+.mhead .t{min-width:0;text-align:center}
+.mhead h1{font-size:clamp(40px,7vw,72px)}
+.mhead p{color:var(--text);font-size:clamp(17px,2.2vw,22px)}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.chip{padding:4px 16px;border-radius:999px;background:var(--c1,#E6EEFF);border:1px solid var(--c2,#BFD1F7);color:var(--navy);font-size:16px}
+.jobs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px}
+.job{padding:14px 16px;border-radius:18px;background:var(--c1);border:1px solid var(--c2);min-width:0}
+.job h4{font-family:var(--display);font-weight:800;font-size:19px;color:var(--navy);line-height:1.5}
+.job p{font-size:16px;color:var(--muted);line-height:1.7;text-align:start}
+.mbox{border-color:var(--c2)}
+.mbox>.pillhead{background:var(--c1);border:1px solid var(--c2)}
+.fit{margin:36px 0 0;padding:20px 22px;border-radius:26px;background:var(--c1);border:1.5px solid var(--c2);text-align:center}
+.fit h3{font-family:var(--display);font-weight:800;font-size:22px;color:var(--navy)}
+.fit p{color:var(--text)}
+.fit small{display:block;margin-top:6px;color:var(--muted);font-size:15px}
+
+/* balance */
+.what{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+.what p{flex:1 1 260px;min-width:0}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px;margin-top:8px}
+.how>div{position:relative;padding:34px 14px 16px;border-radius:22px;border:1.5px solid var(--c2);background:var(--c1);text-align:center}
+.how .num{position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:34px;height:34px;font-size:17px;background:var(--c3)}
+.how h4{font-family:var(--display);font-weight:800;font-size:19px;color:var(--navy)}
+.how p{font-size:16px;color:var(--muted);line-height:1.7}
+.tool{margin-top:48px;padding:24px 20px;border-radius:30px;border:1.5px solid var(--line);background:#fff;scroll-margin-top:70px}
+.tool h2{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.4vw,34px);color:var(--navy);text-align:center}
+.pickers{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:18px 0}
+.pickers label{display:flex;flex-direction:column;gap:4px;flex:1 1 220px;max-width:320px;font-family:var(--display);font-weight:600;color:var(--navy)}
+select{min-height:48px;padding:0 14px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);font-family:var(--body);font-size:17px}
+.cmp{display:grid;gap:12px}
+.cmp .row{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+.cmp .row h4{margin:0;padding:8px 16px;background:var(--tint);font-family:var(--display);font-weight:800;font-size:18px;color:var(--navy)}
+.cmp .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.cmp .cols>div{padding:12px 16px;font-size:16px;color:var(--text);line-height:1.8;min-width:0}
+.cmp .cols>div+div{border-inline-start:1px solid var(--line)}
+.cmp .cols b{display:block;font-family:var(--display);color:var(--blue-deep);font-size:15px}
+.cmp-head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.cmp-head div{padding:14px;border-radius:18px;text-align:center;font-family:var(--display);font-weight:800;font-size:22px;color:var(--navy);background:var(--c1);border:1.5px solid var(--c2)}
+
+/* about */
+.bullets{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.bullets li{display:flex;align-items:flex-start;gap:12px;color:var(--ink);font-size:clamp(17px,2.2vw,21px)}
+.bullets svg{flex:none;margin-top:8px}
+.statement{margin:36px 0 0;padding:20px 24px;border-radius:26px;background:linear-gradient(180deg,#DCE7FF,#E8EFFF);text-align:center;font-family:var(--display);font-weight:800;font-size:clamp(20px,2.8vw,28px);color:var(--navy)}
+.pad-b{padding-bottom:72px}
+footer{padding:28px 16px 40px;text-align:center;color:var(--muted);font-size:15px;background:#fff;border-top:1px solid var(--line)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:640px){
+  .value+.value,.steps3>div+div{border-inline-start:0;border-top:1px solid var(--line)}
+  .cmp .cols>div+div{border-inline-start:0;border-top:1px solid var(--line)}
+}
+
+/* interactive tools */
+.tool-panel{margin-top:24px;padding:20px;border:1.5px solid var(--line);border-radius:24px;background:#fff}
+.tool-panel h3{font-family:var(--display);font-size:22px;color:var(--navy);margin-bottom:10px}
+.tool-panel p{color:var(--text)}
+.tool-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
+.tool-actions .btn{font-size:18px;min-height:50px;padding:0 28px}
+.q-card{padding:18px;margin:14px 0;border:1px solid var(--line);border-radius:18px;background:#fbfcff}
+.q-card legend{font-family:var(--display);font-weight:800;color:var(--navy);padding:0 6px}
+.q-card label{display:flex;align-items:flex-start;gap:9px;padding:7px 4px;color:var(--text);cursor:pointer}
+.q-card input{margin-top:7px;accent-color:var(--blue);width:18px;height:18px;flex:none}
+.progress{height:10px;border-radius:99px;background:#e7edfb;overflow:hidden;margin:12px 0 22px}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,#5B8DEF,#2D5FC4);width:0;transition:width .25s}
+.result-card{margin-top:22px;padding:22px;border:1.5px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#f7f9ff,#fff)}
+.result-card h3{font-family:var(--display);font-size:25px;color:var(--navy)}
+.result-list{display:grid;gap:12px;margin-top:14px}
+.result-item{padding:14px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.result-item strong{color:var(--blue-deep);font-family:var(--display)}
+.balance-stage{margin:20px auto 8px;max-width:560px;padding:18px 12px 6px;background:#f8faff;border:1px solid var(--line);border-radius:22px}
+.balance-beam{height:12px;width:78%;margin:0 auto;border-radius:20px;background:linear-gradient(90deg,#5B8DEF,#9DBAF5);transform-origin:50% 50%;transform:rotate(0deg);transition:transform .8s ease}
+.balance-pivot{width:0;height:0;margin:auto;border-left:42px solid transparent;border-right:42px solid transparent;border-bottom:72px solid #c8d8fa}
+.balance-base{width:58%;height:10px;margin:0 auto 8px;border-radius:20px;background:#2D5FC4}
+.balance-pans{display:flex;justify-content:space-between;gap:12px;margin-top:-2px}
+.balance-pan{width:42%;text-align:center;padding:10px 6px;border-radius:14px;background:#fff;border:1px solid var(--line);font-family:var(--display);font-weight:800;color:var(--navy)}
+.scorebar{height:12px;background:#e9eefb;border-radius:99px;overflow:hidden;margin-top:8px}
+.scorebar span{display:block;height:100%;background:linear-gradient(90deg,#5B8DEF,#2D5FC4);border-radius:99px}
+.future-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;margin-top:18px}
+.future-card{padding:18px;border:1.5px solid var(--line);border-radius:20px;background:#fff}
+.future-card .rank{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:var(--tint);color:var(--navy);font-weight:800}
+.future-card h3{font-family:var(--display);color:var(--navy);font-size:20px;margin:8px 0}
+.small-note{font-size:14px!important;color:var(--muted)!important;margin-top:14px}
+@media(prefers-reduced-motion:reduce){.balance-beam,.progress span{transition:none}}
+
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="القائمة الرئيسية">
+  <ul>
+    <li><a href="#/home" data-nav="home">الرئيسية</a></li>
+    <li><a href="#/compass" data-nav="compass">بوصلة مهن</a></li>
+    <li><a href="#/majors" data-nav="majors">التخصصات</a></li>
+    <li><a href="#/balance" data-nav="balance">ميزان مهن</a></li>
+    <li><a href="#/future" data-nav="future">مهن المستقبل</a></li>
+    <li><a href="#/about" data-nav="about">عن مهن</a></li>
+  </ul>
+</nav>
+
+<main id="app" tabindex="-1"></main>
+
+<footer>مِهن .. اكتشف، قارن، وخطّط لمستقبلك بثقة.</footer>
+
+<script>
+var SPARK = '<svg class="sparkle" width="22" height="22" viewBox="-12 -12 24 24" aria-hidden="true"><path d="M0 -11 Q1.5 -1.5 11 0 Q1.5 1.5 0 11 Q-1.5 1.5 -11 0 Q-1.5 -1.5 0 -11 Z" fill="#3F7BE0"/></svg>';
+var DIVIDER = '<div class="divider" aria-hidden="true"><i></i>' + SPARK + '<i></i></div>';
+
+/* icons: 48x48 stroke icons */
+function ico(name, size) {
+  var s = size || 44;
+  var p = {
+    bulb: '<path d="M18 34 C18 30 12 27 12 20 a12 12 0 0 1 24 0 C36 27 30 30 30 34 Z"/><path d="M19 39 H29"/><path d="M21 43 H27"/><path d="M24 2 V5"/><path d="M7 7 L9.5 9.5"/><path d="M41 7 L38.5 9.5"/><path d="M2 20 H5"/><path d="M43 20 H46"/>',
+    target: '<circle cx="22" cy="26" r="16"/><circle cx="22" cy="26" r="10"/><circle cx="22" cy="26" r="4"/><path d="M22 26 L40 8"/><path d="M34 6 V14 H42"/>',
+    rocket: '<path d="M30 8 C38 8 42 12 40 20 C38 28 30 34 22 38 L10 26 C14 18 20 10 30 8 Z"/><circle cx="29" cy="19" r="3.5"/><path d="M10 26 L5 28 L9 33"/><path d="M22 38 L20 43 L15 39"/><path d="M12 36 L6 42"/>',
+    med: '<path d="M24 41 C8 29 6 17 14 12 C19 9 23 12 24 15 C25 12 29 9 34 12 C42 17 40 29 24 41Z"/><path d="M12 24 H19 L22 18 L26 30 L29 24 H36"/>',
+    cs: '<rect x="6" y="9" width="36" height="24" rx="3"/><path d="M17 41 H31"/><path d="M24 33 V41"/><path d="M19 17 L13 21 L19 25"/><path d="M29 17 L35 21 L29 25"/>',
+    rad: '<circle cx="24" cy="24" r="5"/><circle cx="24" cy="24" r="17"/><path d="M24 7 V14"/><path d="M24 34 V41"/><path d="M7 24 H14"/><path d="M34 24 H41"/>',
+    ind: '<circle cx="24" cy="24" r="15" stroke-width="7" stroke-dasharray="5.2 6.2"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="4"/>',
+    chem: '<path d="M18 6 H30"/><path d="M20 6 V20 L9 38 a3 3 0 0 0 3 5 H36 a3 3 0 0 0 3 -5 L28 20 V6"/><path d="M14 32 H34"/>',
+    phys: '<ellipse cx="24" cy="24" rx="19" ry="7"/><ellipse cx="24" cy="24" rx="19" ry="7" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="19" ry="7" transform="rotate(120 24 24)"/><circle cx="24" cy="24" r="3" fill="currentColor"/>',
+    bio: '<path d="M14 5 C14 17 34 17 34 29 C34 38 24 43 24 43"/><path d="M34 5 C34 17 14 17 14 29 C14 38 24 43 24 43"/><path d="M17 11 H31"/><path d="M17 23 H31"/><path d="M19 35 H29"/>',
+    psych: '<path d="M12 8 V20 a12 12 0 0 0 24 0 V8"/><path d="M24 6 V43"/><path d="M17 43 H31"/>',
+    biz: '<rect x="6" y="28" width="8" height="14" rx="1"/><rect x="20" y="20" width="8" height="22" rx="1"/><rect x="34" y="10" width="8" height="32" rx="1"/><path d="M6 18 L18 10 L26 14 L40 4"/>',
+    elec: '<path d="M27 4 L12 26 H23 L20 44 L36 21 H25 Z"/>',
+    geo: '<path d="M3 40 L17 14 L26 30 L32 21 L45 40 Z"/><path d="M12 26 L17 22 L21 27"/>'
+  };
+  return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (p[name] || '') + '</svg>';
+}
+
+/* data: تخصصات */
+var MAJORS = [
+  {id:'med', name:'الطب', icon:'med', c:['#EDE3FF','#CDB8F5','#6B4FD6'], card:'مجال يهتم بصحة الإنسان وتقديم الرعاية الطبية.',
+   sub:'من فهم جسم الإنسان إلى تشخيص الأمراض وعلاجها',
+   desc:'يدرس جسم الإنسان وأعضاءه ووظائفها، وكيفية تشخيص الأمراض والوقاية منها وعلاجها لتحسين صحة الأفراد والمجتمع.',
+   study:['التشريح','وظائف الأعضاء','علم الأمراض','الأدوية','الأحياء الدقيقة','الكيمياء الحيوية','مهارات الفحص والتشخيص والتواصل الطبي'],
+   jobs:[['طبيب عام','يفحص المرضى ويشخص الحالات الشائعة.'],['طبيب مقيم','يتدرب في تخصص طبي بعد القبول في برنامج الإقامة.'],['طبيب طوارئ','يقيّم الحالات العاجلة ويقدم الرعاية الأولية.'],['طبيب أسرة','يتابع صحة الأفراد والعائلات.'],['باحث طبي','يساهم في الدراسات والأبحاث الطبية.'],['طبيب أكاديمي','يشارك في التعليم والتدريب الطبي.']],
+   where:['المستشفيات','المراكز الصحية والعيادات','المراكز الطبية التخصصية','الجامعات ومراكز الأبحاث','الجهات الصحية الحكومية'],
+   skills:['التفكير النقدي','دقة الملاحظة','التواصل والتعاطف','اتخاذ القرار','العمل الجماعي','تحمل المسؤولية والتعلم المستمر'],
+   future:'تستمر الحاجة إلى الأطباء مع تطور الرعاية الصحية، وتتنوع المسارات بين الممارسة السريرية والتخصصات الدقيقة والبحث والتعليم. تختلف الفرص حسب التخصص والتدريب واحتياج سوق العمل.',
+   fitQ:'هل تحب العلوم ومساعدة الناس؟', fit:'قد يكون الطب خياراً مناسباً إذا كنت مستعداً للتعلم المستمر وتحمل المسؤولية والعمل ضمن فريق.',
+   note:'غالباً 6 سنوات دراسة + سنة امتياز، وقد تختلف الخطة بين الجامعات.'},
+  {id:'cs', name:'علوم الحاسب', icon:'cs', c:['#E1ECFF','#B7CDFA','#2D5FC4'], card:'مجال التقنية والبرمجة وتطوير الأنظمة الذكية.', soon:true},
+  {id:'rad', name:'علوم الأشعة', icon:'rad', c:['#DDF5EF','#A9E2D4','#1B8A7A'], card:'مجال التصوير الطبي وتشخيص الأمراض.',
+   sub:'اكتشف العالم من خلال الصور الطبية',
+   desc:'علوم الأشعة هو تخصص طبي يختص باستخدام تقنيات التصوير الطبي مثل الأشعة السينية، التصوير المقطعي، والرنين المغناطيسي.',
+   study:['تشريح الإنسان','الفيزياء الإشعاعية','تقنيات التصوير الطبي','سلامة الإشعاع','تحليل الصور الطبية'],
+   jobs:[['فيزياء الأشعة','ضبط جرعات الإشعاع والأجهزة.'],['تقني الأشعة','إجراء الفحوصات التصويرية ومساعدة الأطباء.'],['أخصائي الأشعة','قراءة وتحليل صور الأشعة وتشخيص الحالات.'],['التدريس والتدريب','تعليم وتدريب الكوادر الطبية.'],['البحث العلمي','المساهمة في تطوير تقنيات التصوير.'],['إدارة الأقسام الإشعاعية','الإشراف على القسم وتطوير الخدمات.']],
+   where:['المستشفيات','المراكز الطبية','الجامعات','مراكز الأشعة المتخصصة','شركات الأجهزة الطبية'],
+   skills:['الدقة في التحليل','المهارات التقنية','فهم التشريح البشري','التواصل','العمل ضمن فريق'],
+   future:'مستقبل علوم الأشعة واعد، مع تزايد الحاجة إلى أخصائيي الأشعة في المستشفيات وتطور التقنيات الطبية، مما يتيح فرصاً واسعة للتخصص والعمل.',
+   fitQ:'هل تحب هذا التخصص وتبحث عن التميز؟', fit:'علوم الأشعة خيار رائع لك إذا كنت مهتماً بالطب والتقنيات الحديثة وتحب تحليل الصور الطبية.'},
+  {id:'ind', name:'الهندسة الصناعية', icon:'ind', c:['#FFEBD2','#F6C98F','#B8691A'], card:'مجال تحسين الأنظمة والعمليات في مختلف القطاعات.',
+   sub:'هندسة تُصنع بها الكفاءة في كل مجال',
+   desc:'الهندسة الصناعية هي تخصص يجمع بين الهندسة والإدارة، ويهدف إلى تحسين العمليات والموارد لزيادة الكفاءة والإنتاجية.',
+   study:['الرياضيات','الإحصاء','إدارة العمليات','هندسة النظم','تحسين الجودة','إدارة المشاريع','سلاسل الإمداد واللوجستيات'],
+   jobs:[['إدارة العمليات','تحسين سير العمل وزيادة الإنتاجية.'],['تحليل البيانات','تحليل البيانات لاتخاذ قرارات أفضل.'],['إدارة المشاريع','الإشراف على المشاريع وتنفيذها بكفاءة.'],['اللوجستيات وسلاسل الإمداد','إدارة تدفق المواد والمنتجات.'],['الجودة والتطوير','تحسين الجودة وتطوير العمليات.'],['الاستشارات الإدارية','تقديم حلول هندسية لتحسين الأداء.']],
+   where:['الصناعة','الطاقة','الهندسة','الخدمات اللوجستية','الشركات الكبرى'],
+   skills:['التحليل وحل المشكلات','التفكير المنطقي','إدارة الوقت','القيادة','العمل الجماعي','استخدام الأدوات الهندسية والإدارية'],
+   future:'فرص وظيفية واسعة في مجالات الإدارة والهندسة، مع إمكانية التخصص في مجالات مثل: إدارة الجودة، الهندسة اللوجستية، أو التحليل البياني. كما يمكنه متابعة الدراسات العليا (ماجستير ودكتوراه).',
+   fitQ:'هل تحب التحدي وتبحث عن التميز؟', fit:'الهندسة الصناعية خيار مثالي لك لبناء مستقبل مهني مميز في عالم متطور!'},
+  {id:'chem', name:'الكيمياء', icon:'chem', c:['#EBDFFF','#D2BCF5','#7A4FD6'], card:'مجال دراسة المادة وتفاعلاتها.',
+   sub:'العلم الذي يدرس المادة وتفاعلاتها',
+   desc:'الكيمياء هي دراسة خصائص المادة، تركيبها، وتفاعلاتها، وتطبيقاتها في مختلف المجالات.',
+   study:['الكيمياء العامة','الكيمياء العضوية','الكيمياء الفيزيائية','الكيمياء التحليلية','الكيمياء الحيوية'],
+   jobs:[['الصناعات الكيميائية','مثل: البتروكيماويات والأسمدة.'],['الصناعات الدوائية','وتطوير الأدوية والعلاجات.'],['البيئة والطاقة','في معالجة البيئة ومصادر الطاقة النظيفة.'],['البحث العلمي','في الجامعات ومراكز الأبحاث.'],['التحليل والفحص','تحليل المواد والبيئة والجودة.'],['التعليم','تدريس الكيمياء في المدارس والجامعات.']],
+   where:['المصانع الكيميائية','المختبرات البحثية','المستشفيات','الجامعات','شركات الأدوية والمواد الكيميائية'],
+   skills:['التحليل المنطقي','التفكير النقدي','حل المشكلات','الدقة في العمل','مهارات البحث والتطوير'],
+   future:'مستقبل الكيمياء واعد، مع تزايد الحاجة إلى الكيميائيين في مجالات متعددة مثل: الصناعات، الطب، البيئة، والطاقة المتجددة.',
+   fitQ:'هل تحب هذا التخصص وتبحث عن التميز؟', fit:'الكيمياء خيار رائع لك إذا كنت مهتماً بالعلم، وتحب استكشاف أسرار المادة.'},
+  {id:'phys', name:'الفيزياء', icon:'phys', c:['#E4E6FF','#C3C8F7','#4E54C8'], card:'مجال فهم الطبيعة وقوانينها الأساسية.',
+   sub:'فهم أعمق لقوانين الكون',
+   desc:'الفيزياء هي دراسة المادة والطاقة وقوانين الطبيعة، وتساعدنا على فهم العالم من حولنا.',
+   study:['الميكانيكا','الكهرباء والمغناطيسية','الفيزياء الحديثة','الفيزياء النووية','الفيزياء الفلكية','الفيزياء النظرية'],
+   jobs:[['الهندسة والتقنية','في مجالات مثل: الذكاء الاصطناعي، والفضاء.'],['العمل في المختبرات','وتطوير التقنيات والأجهزة.'],['البحث العلمي','في الجامعات ومراكز الأبحاث.'],['التدريس','في المدارس والجامعات.'],['تحليل البيانات','باستخدام النماذج والتحليلات الفيزيائية.'],['علم الفلك والفضاء','ودراسة الكواكب والنجوم.']],
+   where:['الجامعات','مراكز الأبحاث','شركات التقنية والطاقة','وكالات الفضاء','المختبرات العلمية'],
+   skills:['الرياضيات القوية','التفكير التحليلي','حل المشكلات','البحث والابتكار','الدقة في العمل'],
+   future:'مستقبل الفيزياء واعد، مع فرص كبيرة في البحث العلمي، والتقنية، والطاقة المتجددة، والفضاء، والصناعات المتقدمة.',
+   fitQ:'هل تحب هذا التخصص وتبحث عن التميز؟', fit:'الفيزياء خيار رائع لمن يهتم بالاكتشاف والابتكار، ويسعى لفهم أسرار الكون.'},
+  {id:'bio', name:'البيولوجيا', icon:'bio', c:['#E2F5E3','#B9E2BB','#3E8E47'], card:'مجال الحياة والكائنات الحية والوراثة.', soon:true},
+  {id:'psych', name:'علم النفس', icon:'psych', c:['#FFE3EE','#F6BBD3','#C2417A'], card:'مجال فهم السلوك البشري والصحة النفسية.',
+   sub:'لفهم الإنسان وبناء مجتمع أفضل',
+   desc:'علم النفس هو دراسة السلوك البشري، والعقل، والمشاعر، وكيفية تأثير العوامل النفسية على الفرد والمجتمع.',
+   study:['علم النفس العام','علم النفس الإكلينيكي','علم النفس التربوي','علم النفس الاجتماعي','علم الأعصاب والسلوك'],
+   jobs:[['أخصائي نفسي','يقدم الدعم النفسي والعلاج الإرشادي.'],['أخصائي الصحة النفسية','يعمل في المستشفيات والعيادات.'],['معلم نفسي','يُعلم ويُرشد في المدارس والجامعات.'],['أخصائي الموارد البشرية','يدعم بيئة العمل ويعزز رفاهية الموظفين.'],['باحث نفسي','يجري الأبحاث لدراسة السلوك الإنساني.'],['مستشار نفسي','يقدم الاستشارات في مختلف المجالات.']],
+   where:['المستشفيات','المدارس','الجامعات','المراكز البحثية','الشركات','المؤسسات الحكومية'],
+   skills:['التعاطف','مهارات التواصل','التفكير النقدي','فهم السلوك البشري','القدرة على حل المشكلات','الذكاء العاطفي'],
+   future:'يمكنك التخصص في مجالات متعددة مثل: العلاج النفسي، الإرشاد المدرسي، علم النفس التنظيمي، البحث العلمي، أو العمل في مجال الموارد البشرية.',
+   fitQ:'هل تحب هذا التخصص وتبحث عن التميز؟', fit:'علم النفس خيار رائع إذا كنت تهتم بالناس، وتحب فهم العقل البشري وسلوكياته.'},
+  {id:'biz', name:'إدارة الأعمال', icon:'biz', c:['#FFF0CC','#F7D98E','#A87408'], card:'مجال القيادة والإدارة وتطوير الأعمال.',
+   sub:'نبني المهارات .. لنقود المستقبل',
+   desc:'هو مجال يركز على إدارة وتنظيم الأعمال والمؤسسات، وتطوير استراتيجياتها لتحقيق الأهداف بكفاءة وفعالية.',
+   study:['القيادة والإدارة','التسويق','المحاسبة','التمويل','إدارة الموارد البشرية','التخطيط الاستراتيجي'],
+   jobs:[['الاستشارات الإدارية','تقديم الاستشارات للشركات والمؤسسات.'],['التسويق','بناء العلامات التجارية وتسويق المنتجات.'],['الموارد البشرية','إدارة وتطوير المواهب.'],['المالية','إدارة الأموال واتخاذ القرارات المالية.'],['الاستشارات الإدارية','تقديم الاستشارات وتحسين الأداء.'],['إدارة الأعمال الدولية','العمل في المجالات العالمية والتجارة الدولية.']],
+   where:['الشركات الكبرى','المؤسسات الحكومية','البنوك','الشركات الناشئة'],
+   skills:['القيادة','التواصل','التفكير الاستراتيجي','حل المشكلات','العمل الجماعي','إدارة الوقت'],
+   future:'فرص وظيفية واسعة في مختلف القطاعات، وإمكانية التدرج في المناصب الإدارية العليا.',
+   fitQ:'هل تحب هذا التخصص وتبحث عن التميز؟', fit:'إدارة الأعمال خيار رائع لك، فهو يجمع بين الإبداع، القيادة، وصناعة النجاح.'},
+  {id:'elec', name:'الهندسة الكهربائية', icon:'elec', c:['#DDF0FA','#A9D6EE','#1D7EAE'], card:'مجال تصميم وتطوير الأنظمة الكهربائية.',
+   sub:'تصميم وبناء الأنظمة الكهربائية',
+   desc:'الهندسة الكهربائية هي دراسة وتصميم وتطوير الأنظمة الكهربائية، مثل أنظمة الطاقة، والإلكترونيات، والاتصالات.',
+   study:['الدوائر الكهربائية','الأنظمة الكهربائية','الإلكترونيات','أنظمة التحكم','الطاقة الكهربائية'],
+   jobs:[['الاتصالات','في شبكات الاتصالات والتقنيات اللاسلكية.'],['الإلكترونيات','في تصميم وتطوير الدوائر والأجهزة.'],['قطاع الطاقة','في محطات الكهرباء وشبكات الطاقة.'],['الاستشارات والتصميم','في تصميم الحلول الهندسية.'],['الصناعة','في المصانع والأنظمة الصناعية.'],['الروبوتات والأنظمة الذكية','في تطوير الأنظمة الذكية والروبوتات.']],
+   where:['شركات الكهرباء','شركات الاتصالات','الشركات الصناعية','شركات التقنية والهندسة'],
+   skills:['التحليل المنطقي','حل المشكلات','الرياضيات المتقدمة','البرمجة (أساسية)','العمل الجماعي'],
+   future:'مستقبل مشرق في مجالات الطاقة والتقنية، مع فرص للابتكار والقيادة في مشاريع الطاقة المستدامة والذكاء الاصطناعي.',
+   fitQ:'هل تحب هذا التخصص وتبحث عن التميز؟', fit:'الهندسة الكهربائية خيار رائع لك إذا كنت مهتماً بالتقنية والابتكار.'},
+  {id:'geo', name:'الجيولوجيا', icon:'geo', c:['#E5F5DD','#BFE2B0','#4C8A2E'], card:'مجال دراسة الأرض ومواردها.',
+   sub:'لفهم كوكب الأرض وموارده',
+   desc:'علم يدرس تركيب الأرض، وتاريخها الجيولوجي، والعمليات الطبيعية التي تشكل سطحها.',
+   study:['الجيولوجيا العامة','المعادن والصخور','علم الخرائط الجيولوجية','الجيولوجيا البيئية','علم البترول والغاز'],
+   jobs:[['البيئة والاستدامة','في حماية البيئة ومواردها الطبيعية.'],['قطاع النفط والغاز','في التنقيب وإدارة الموارد الهيدروكربونية.'],['قطاع التعدين','في استكشاف وإدارة المعادن والموارد.'],['الهندسة الجيولوجية','في مشاريع البناء والبنية التحتية.'],['البحث العلمي','في دراسة الأرض وتطوراتها الجيولوجية.'],['الاستشارات الجيولوجية','في تحليل البيانات والدراسات الجيولوجية.']],
+   where:['شركات النفط والغاز','شركات التعدين','الهيئات الحكومية','مراكز الأبحاث','الجامعات'],
+   skills:['التحليل المكاني','التفكير النقدي','حل المشكلات','العمل الميداني','استخدام أدوات وتقنيات التحليل الجيولوجي'],
+   future:'توفر فرص مهنية واسعة في مجالات الطاقة والبيئة والموارد الطبيعية، ويمكن العمل في البحث العلمي، أو في قطاعات التعدين والبترول.',
+   fitQ:'هل تحب هذا التخصص وتبحث عن التميز؟', fit:'علم الجيولوجيا خيار رائع لك إذا كنت مهتماً بالطبيعة، الأرض، والبيئة.'}
+];
+function byId(id){ for (var i=0;i<MAJORS.length;i++){ if (MAJORS[i].id===id) return MAJORS[i]; } return null; }
+function cvars(m){ return '--c1:'+m.c[0]+';--c2:'+m.c[1]+';--c3:'+m.c[2]+';'; }
+function chips(list){ return '<div class="chips">'+list.map(function(x){return '<span class="chip">'+x+'</span>';}).join('')+'</div>'; }
+function box(title, inner, cls){ return '<section class="box '+(cls||'')+'"><h2 class="pillhead">'+title+'</h2>'+inner+'</section>'; }
+
+/* pages */
+function pageHome(){
+  return '<div class="page">' +
+  '<div class="wrap">' +
+  '<section class="hero">' +
+    '<div class="hero-text">' +
+      '<h1 class="title-xl">مِهن</h1>' +
+      '<p class="title-xl tag">مستقبلك يبدأ <span class="accent">من هنا</span></p>' +
+      '<svg class="under" width="220" height="26" viewBox="0 0 220 26" aria-hidden="true" style="margin:0"><path d="M4 20 C60 4 140 2 216 8" fill="none" stroke="#3F7BE0" stroke-width="5" stroke-linecap="round"/></svg>' +
+      '<p class="lead" style="max-width:30ch">اكتشف ميولك، استكشف تخصصاتك، وابنِ مستقبلك بثقة.</p>' +
+    '</div>' +
+    '<div class="hero-art">' +
+    '<svg viewBox="0 0 560 520" role="img" aria-label="بوابة على شكل قوس يخرج منها طريق متعرج">' +
+    '<defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B8DEF"/><stop offset="1" stop-color="#2D5FC4"/></linearGradient>' +
+    '<linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B7CDFA"/><stop offset="1" stop-color="#EAF1FF"/></linearGradient>' +
+    '<linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8FB1F5"/><stop offset="1" stop-color="#2D5FC4"/></linearGradient></defs>' +
+    '<ellipse cx="280" cy="300" rx="262" ry="86" transform="rotate(-14 280 300)" fill="none" stroke="#5B8DEF" stroke-width="2"/>' +
+    '<path d="M150 440 V230 a120 120 0 0 1 240 0 V440 Z" fill="url(#g1)"/>' +
+    '<path d="M190 440 V232 a80 80 0 0 1 160 0 V440 Z" fill="url(#g2)"/>' +
+    '<path d="M-10 430 C80 430 120 380 250 360 C330 348 330 330 270 322 C230 316 235 296 290 298 C380 302 470 350 560 420 L560 520 L-10 520 Z" fill="url(#g3)" opacity="0.9"/>' +
+    '<path d="M270 190 Q276 232 316 240 Q276 248 270 290 Q264 248 224 240 Q264 232 270 190 Z" fill="#fff"/>' +
+    '<path d="M370 30 Q376 70 412 78 Q376 86 370 126 Q364 86 328 78 Q364 70 370 30 Z" fill="#3F7BE0" transform="translate(110 -10) scale(0.8)"/>' +
+    '<path d="M56 110 Q59 128 76 132 Q59 136 56 154 Q53 136 36 132 Q53 128 56 110 Z" fill="#5B8DEF"/>' +
+    '<path d="M452 205 Q455 225 474 229 Q455 233 452 253 Q449 233 430 229 Q449 225 452 205 Z" fill="#3F7BE0"/></svg>' +
+    '</div>' +
+  '</section>' +
+  '<section class="center">' +
+    '<h2 class="title-xl" style="font-size:clamp(28px,4vw,48px);line-height:1.4"><span class="accent">مع مِهن</span> ..<br>خطوة أقرب نحو حلمك</h2>' +
+    '<p class="lead" style="margin:16px auto 20px;max-width:34ch">أدوات ذكية تساعدك على فهم نفسك، ومقارنة الخيارات، واختيار المسار الأنسب لك.</p>' +
+    DIVIDER +
+    '<div class="values">' +
+      '<div class="value"><div class="ic">'+ico('bulb')+'</div><h3>معرفة أعمق</h3><p>اكتشف ميولك ومهاراتك بطريقة ممتعة</p></div>' +
+      '<div class="value"><div class="ic">'+ico('target')+'</div><h3>قرارات أذكى</h3><p>قارن بين التخصصات واختر الأنسب لك</p></div>' +
+      '<div class="value"><div class="ic">'+ico('rocket')+'</div><h3>مستقبل أوسع</h3><p>اكتشف الفرص المهنية في سوق العمل</p></div>' +
+    '</div>' +
+  '</section>' +
+  '</div>' +
+  '<section class="closing">'+DIVIDER+'<p>مِهن .. طريقك نحو مستقبل مشرق</p></section>' +
+  '</div>';
+}
+
+
+var COMPASS_QUESTIONS = [
+  {q:'أي نوع من الأنشطة يجذبك أكثر؟', a:[['health','مساعدة الناس والاهتمام بصحتهم'],['tech','ابتكار تطبيق أو حل رقمي'],['eng','تصميم جهاز أو تحسين نظام'],['biz','قيادة مشروع وتنظيم فريق'],['people','فهم الناس وسلوكهم'],['science','إجراء تجربة واكتشاف شيء جديد'],['earth','استكشاف الطبيعة والبيئة']]},
+  {q:'ما المشكلة التي تستمتع بمحاولة حلها؟', a:[['health','مشكلة صحية أو طبية'],['tech','مشكلة تقنية أو برمجية'],['eng','خلل في آلة أو عملية'],['biz','ضعف أداء مشروع أو مؤسسة'],['people','خلاف أو تحدٍ اجتماعي'],['science','سؤال علمي يحتاج إلى تفسير'],['earth','مشكلة تتعلق بالموارد أو البيئة']]},
+  {q:'أي بيئة عمل تتخيل نفسك فيها؟', a:[['health','مستشفى أو مركز صحي'],['tech','شركة تقنية أو بيئة رقمية'],['eng','مصنع أو مشروع هندسي'],['biz','شركة أو مؤسسة إدارية'],['people','مدرسة أو مركز إرشاد أو موارد بشرية'],['science','مختبر أو مركز أبحاث'],['earth','ميدان عمل أو جهة بيئية']]},
+  {q:'أي مادة أو مجال تميل إليه غالباً؟', a:[['health','الأحياء وعلوم الإنسان'],['tech','الحاسب والتقنية'],['eng','الرياضيات والفيزياء التطبيقية'],['biz','الإدارة والاقتصاد'],['people','علم النفس والمجتمع'],['science','العلوم والتجارب'],['earth','علوم الأرض والجغرافيا']]},
+  {q:'ما الدور الذي تفضله ضمن فريق؟', a:[['health','أساند الآخرين وأهتم بالتفاصيل'],['tech','أبني الحلول وأختبرها'],['eng','أحلل وأحسن طريقة العمل'],['biz','أنظم المهام وأقود التنفيذ'],['people','أستمع وأفهم وجهات النظر'],['science','أبحث وأتحقق من النتائج'],['earth','أجمع المعلومات من الواقع والميدان']]},
+  {q:'أي إنجاز سيشعرك بالرضا أكثر؟', a:[['health','تحسن صحة شخص أو جودة حياته'],['tech','تطبيق أو نظام يستخدمه الناس'],['eng','حل عملي يجعل العمل أكثر كفاءة'],['biz','نجاح مشروع وتحقيق أهدافه'],['people','مساعدة شخص على فهم نفسه أو تطويره'],['science','اكتشاف أو نتيجة بحثية موثوقة'],['earth','المساهمة في حماية الموارد والبيئة']]},
+  {q:'كيف تفضل التعامل مع المعلومات؟', a:[['health','أربط الأعراض بالمعلومات الصحية'],['tech','أتعامل مع البيانات والأنظمة الرقمية'],['eng','أحلل الأرقام وأقيس الأداء'],['biz','أستخدمها لاتخاذ قرارات وخطط'],['people','أفهم الآراء والسلوكيات'],['science','أختبر الفرضيات وأقارن النتائج'],['earth','أحلل الخرائط والظواهر الطبيعية']]},
+  {q:'أي تحدٍ يبدو ممتعاً بالنسبة لك؟', a:[['health','التعلم المستمر في مجال الرعاية الصحية'],['tech','متابعة التقنيات والأدوات الجديدة'],['eng','تصميم حلول دقيقة لمشكلات معقدة'],['biz','التفاوض والتخطيط وإدارة الموارد'],['people','التواصل مع شخصيات واحتياجات مختلفة'],['science','الصبر على البحث والتجربة'],['earth','العمل على قضايا الطبيعة والموارد']]},
+  {q:'ما المهارة التي ترغب في استخدامها يومياً؟', a:[['health','الدقة والتعاطف'],['tech','المنطق والبرمجة'],['eng','التحليل والتحسين'],['biz','القيادة والتخطيط'],['people','الاستماع والتواصل'],['science','الملاحظة والاستنتاج'],['earth','الاستكشاف والتحليل المكاني']]},
+  {q:'أي عبارة أقرب إلى طموحك؟', a:[['health','أريد أن أساهم في صحة المجتمع'],['tech','أريد أن أصنع حلول المستقبل الرقمية'],['eng','أريد أن أطور الأنظمة والمشاريع'],['biz','أريد أن أقود الأعمال وأطورها'],['people','أريد أن أفهم الإنسان وأساعده'],['science','أريد أن أكتشف وأضيف معرفة جديدة'],['earth','أريد أن أفهم الأرض وأحافظ على مواردها']]}
+];
+var COMPASS_FIELDS = {
+  health:{name:'المجال الصحي',majors:['الطب','علوم الأشعة','المعلوماتية الصحية'],why:'تميل إجاباتك إلى خدمة الإنسان والاهتمام بالصحة والدقة في التعامل مع المعلومات.'},
+  tech:{name:'التقنية والحوسبة',majors:['علوم الحاسب','الذكاء الاصطناعي','الأمن السيبراني'],why:'تنجذب إلى الحلول الرقمية والأنظمة والتفكير المنطقي والتقنيات الحديثة.'},
+  eng:{name:'الهندسة والتطوير',majors:['الهندسة الصناعية','الهندسة الكهربائية','هندسة النظم'],why:'تفضل تحليل المشكلات وتحسين العمليات وبناء حلول عملية قابلة للتطبيق.'},
+  biz:{name:'الأعمال والإدارة',majors:['إدارة الأعمال','التسويق','سلاسل الإمداد'],why:'تميل إلى التخطيط والقيادة وتنظيم الموارد وتحويل الأفكار إلى مشاريع.'},
+  people:{name:'الإنسان والسلوك',majors:['علم النفس','الموارد البشرية','الخدمة الاجتماعية'],why:'تستمتع بفهم الناس والتواصل معهم ومساندتهم وتطوير بيئاتهم.'},
+  science:{name:'العلوم والبحث',majors:['الفيزياء','الكيمياء','العلوم الحيوية'],why:'تنجذب إلى الاستكشاف والتجارب والتحقق من المعلومات وبناء المعرفة.'},
+  earth:{name:'الأرض والبيئة',majors:['الجيولوجيا','العلوم البيئية','الاستدامة'],why:'تهتم بالطبيعة والموارد والظواهر الميدانية وتحليلها.'}
+};
+function pageCompass(){
+  var qs = COMPASS_QUESTIONS.map(function(q,i){
+    return '<fieldset class="q-card"><legend>'+(i+1)+'. '+q.q+'</legend>'+q.a.map(function(a){
+      return '<label><input type="radio" name="cq'+i+'" value="'+a[0]+'"><span>'+a[1]+'</span></label>';
+    }).join('')+'</fieldset>';
+  }).join('');
+  return '<div class="page"><div class="wrap pad-b">' +
+    '<section class="compass"><div class="txt center"><h1 class="title-xl" style="font-size:clamp(48px,8vw,88px);line-height:1.1">بوصلة <span class="accent">مِهن</span></h1><p class="lead" style="margin-top:8px">اكتشف ميولك .. واختر طريقك بثقة</p></div>' +
+    '<div class="art">'+ico('target',150)+'</div></section>' +
+    box('عن الأداة','<p>اختبار من 10 أسئلة يساعدك على استكشاف المجالات التي تتوافق مع اهتماماتك وطريقة تفكيرك.</p>') +
+    '<section class="tool-panel" id="compass-quiz"><h2 class="tool-title">اختبار الميول</h2><p>اختر إجابة واحدة لكل سؤال، ثم اعرض نتيجتك.</p><div class="progress"><span id="quiz-progress"></span></div><form id="quiz-form">'+qs+
+    '<div class="tool-actions"><button class="btn" type="submit">اعرض نتيجتي</button><button class="btn" type="button" id="quiz-reset">إعادة الاختبار</button></div></form><div id="quiz-result" aria-live="polite"></div></section>' +
+    '<p class="small-note">النتيجة استرشادية للتعرف على الميول، وليست اختباراً نفسياً أو قراراً نهائياً لاختيار التخصص.</p>' +
+  '</div></div>';
+}
+function bindCompass(){
+  var form=document.getElementById('quiz-form');
+  if(!form)return;
+  var progress=document.getElementById('quiz-progress');
+  form.addEventListener('change',function(){
+    var n=form.querySelectorAll('input[type=radio]:checked').length;
+    progress.style.width=(n*10)+'%';
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var scores={health:0,tech:0,eng:0,biz:0,people:0,science:0,earth:0};
+    var missing=[];
+    COMPASS_QUESTIONS.forEach(function(q,i){
+      var chosen=form.querySelector('input[name="cq'+i+'"]:checked');
+      if(!chosen)missing.push(i+1); else scores[chosen.value]++;
+    });
+    var result=document.getElementById('quiz-result');
+    if(missing.length){result.innerHTML='<p class="notice">أكمِل الأسئلة التالية أولاً: '+missing.join('، ')+'</p>';return;}
+    var ranked=Object.keys(scores).sort(function(a,b){return scores[b]-scores[a];});
+    var top=ranked[0], second=ranked[1], info=COMPASS_FIELDS[top], alt=COMPASS_FIELDS[second];
+    var percent=Math.round(scores[top]/10*100);
+    result.innerHTML='<section class="result-card"><h3>نتيجتك: '+info.name+'</h3><p>'+info.why+'</p><p><strong>مؤشر إجاباتك في هذا المجال: '+percent+'٪</strong></p><div class="result-list"><div class="result-item"><strong>تخصصات مقترحة</strong><p>'+info.majors.join('، ')+'</p></div><div class="result-item"><strong>مجال بديل قريب</strong><p>'+alt.name+' — '+alt.majors.join('، ')+'</p><p>'+alt.why+'</p></div></div><p class="small-note">النسبة تمثل عدد إجاباتك التي اتجهت إلى هذا المجال من إجمالي 10 إجابات، ولا تعني ضمان النجاح أو القبول أو التوظيف.</p></section>';
+    result.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+  document.getElementById('quiz-reset').addEventListener('click',function(){form.reset();progress.style.width='0%';document.getElementById('quiz-result').innerHTML='';});
+}
+
+function pageMajors(){
+  var cards = MAJORS.map(function(m){
+    var inner = '<div class="mi">'+ico(m.icon,34)+'</div><div><h3>'+m.name+'</h3><p>'+m.card+'</p>'+(m.soon?'<span class="soon">قريباً</span>':'')+'</div>';
+    return m.soon
+      ? '<div class="mcard" style="'+cvars(m)+'">'+inner+'</div>'
+      : '<a class="mcard" href="#/major/'+m.id+'" style="'+cvars(m)+'">'+inner+'</a>';
+  }).join('');
+  return '<div class="page"><div class="wrap pad-b">' +
+    '<header class="sec-head"><h1 class="title-xl">التخصصات</h1><svg class="under" width="220" height="20" viewBox="0 0 220 20" aria-hidden="true"><path d="M4 14 C60 2 150 2 216 8" fill="none" stroke="#5B8DEF" stroke-width="4" stroke-linecap="round"/></svg>' +
+    '<p class="lead">اكتشف أبرز التخصصات الجامعية وتعرّف على مجالاتها وفرصها المستقبلية.</p></header>' +
+    '<div class="mgrid">'+cards+'</div>' +
+    '<div class="center" style="margin-top:44px">'+DIVIDER+'<p class="title-xl" style="font-size:clamp(20px,2.6vw,28px);margin-top:10px">اختر التخصص الذي يليق بك .. وابدأ رحلتك نحو مستقبلك المشرق</p></div>' +
+  '</div></div>';
+}
+
+function pageMajor(id){
+  var m = byId(id);
+  if (!m || m.soon) return pageMajors();
+  var jobs = '<div class="jobs">'+m.jobs.map(function(j){return '<div class="job"><h4>'+j[0]+'</h4><p>'+j[1]+'</p></div>';}).join('')+'</div>';
+  return '<div class="page" style="--page-tint:'+m.c[0]+';'+cvars(m)+'"><div class="wrap pad-b">' +
+    '<a class="back" href="#/majors">← العودة إلى التخصصات</a>' +
+    '<header class="mhead"><div class="mi">'+ico(m.icon,76)+'</div><div class="t"><h1 class="title-xl">'+m.name+'</h1><p>'+m.sub+'</p></div></header>' +
+    box(id==='biz'?'ما هو تخصص إدارة الأعمال؟':'ما هو التخصص؟', '<p>'+m.desc+'</p>', 'mbox') +
+    box('ماذا تدرس؟', chips(m.study), 'mbox') +
+    box('ماذا يعمل الخريج؟', jobs, 'mbox') +
+    box('أين يمكنه العمل؟', chips(m.where), 'mbox') +
+    box('المهارات التي تساعدك', chips(m.skills), 'mbox') +
+    box('كيف يبدو مستقبله؟', '<p>'+m.future+'</p>', 'mbox') +
+    '<section class="fit"><h3>'+m.fitQ+'</h3><p>'+m.fit+'</p>'+(m.note?'<small>'+m.note+'</small>':'')+'</section>' +
+  '</div></div>';
+}
+
+var balState = {a:'med', b:'ind'};
+var BALANCE_SCORES = {
+  med:[5,5,4,3,4], rad:[4,4,3,3,4], ind:[4,5,5,5,5], chem:[4,4,3,3,4],
+  phys:[5,4,3,3,4], psych:[3,5,4,4,4], biz:[3,5,5,5,5], elec:[5,4,4,4,5],
+  geo:[4,4,3,3,4], cs:[5,5,5,5,5], bio:[4,4,3,3,4]
+};
+var BALANCE_LABELS=['طبيعة الدراسة','المهارات والتحليل','تنوع المسارات المهنية','تنوع بيئات العمل','مرونة المسارات المستقبلية'];
+function optionList(sel){
+  return MAJORS.map(function(m){return '<option value="'+m.id+'"'+(m.id===sel?' selected':'')+'>'+m.name+'</option>';}).join('');
+}
+function renderCompare(){
+  var A=byId(balState.a), B=byId(balState.b), out=document.getElementById('cmp-out');
+  if(!out||!A||!B)return;
+  if(A.id===B.id){out.innerHTML='<p class="notice">اختر تخصصين مختلفين للمقارنة بينهما.</p>';return;}
+  var sa=BALANCE_SCORES[A.id]||[3,3,3,3,3], sb=BALANCE_SCORES[B.id]||[3,3,3,3,3];
+  var totalA=sa.reduce(function(x,y){return x+y;},0), totalB=sb.reduce(function(x,y){return x+y;},0);
+  var rows=BALANCE_LABELS.map(function(label,i){
+    return '<div class="row"><h4>'+label+'</h4><div class="cols"><div><b>'+A.name+' — '+sa[i]+'/5</b><div class="scorebar"><span style="width:'+(sa[i]*20)+'%"></span></div></div><div><b>'+B.name+' — '+sb[i]+'/5</b><div class="scorebar"><span style="width:'+(sb[i]*20)+'%"></span></div></div></div></div>';
+  }).join('');
+  var winner=totalA===totalB?'متقاربان في هذا التقييم':(totalA>totalB?A.name:B.name);
+  var angle=totalA===totalB?0:Math.max(-12,Math.min(12,(totalB-totalA)*1.2));
+  out.innerHTML='<div class="cmp-head"><div style="'+cvars(A)+'">'+A.name+'</div><div style="'+cvars(B)+'">'+B.name+'</div></div>'+
+    '<div class="balance-stage"><div class="balance-beam" style="transform:rotate('+angle+'deg)"></div><div class="balance-pans"><div class="balance-pan">'+A.name+'<br><strong>'+totalA+'/25</strong></div><div class="balance-pan">'+B.name+'<br><strong>'+totalB+'/25</strong></div></div><div class="balance-pivot"></div><div class="balance-base"></div></div>'+
+    '<div class="result-card"><h3>نتيجة المقارنة</h3><p>'+(totalA===totalB?'النتيجة متقاربة حسب معايير المقارنة الحالية.':'يميل الميزان استرشادياً نحو: <strong>'+winner+'</strong>.')+'</p><p><strong>'+A.name+': '+totalA+'/25</strong> &nbsp; | &nbsp; <strong>'+B.name+': '+totalB+'/25</strong></p></div>'+
+    '<div class="cmp">'+rows+'</div>'+
+    '<div class="result-item" style="margin-top:14px"><strong>معلومات التخصصين</strong><p><b>'+A.name+':</b> '+A.card+' '+(A.future||'')+'</p><p style="margin-top:8px"><b>'+B.name+':</b> '+B.card+' '+(B.future||'')+'</p></div>'+
+    '<p class="small-note">هذا التقييم نموذج إرشادي مبسط مبني على خصائص عامة للتخصصات، وليس تصنيفاً رسمياً أو قياساً لسوق العمل. الأرقام لا تعني أن تخصصاً أفضل للجميع؛ اختَر وفق ميولك وظروفك وخطتك.</p>';
+}
+function pageBalance(){
+  var c=['#E1ECFF','#B7CDFA','#2D5FC4'], p=['#EFE3FF','#D2BCF5','#7A4FD6'], g=['#E2F5E3','#B9E2BB','#3E8E47'], o=['#FFEBD2','#F6C98F','#E08A2B'];
+  var steps=[['1','اختر تخصصين:','حدد التخصصين اللذين ترغب في المقارنة بينهما.',c],['2','قارن بينهما:','اطّلع على خمسة معايير للمقارنة.',p],['3','شاهد الميزان:','يتحرك الميزان بحسب مجموع النقاط الاسترشادية.',g],['4','راجع النتيجة:','اقرأ التفاصيل ولا تجعل النقاط قرارك الوحيد.',o]]
+    .map(function(s){return '<div style="--c1:'+s[3][0]+';--c2:'+s[3][1]+';--c3:'+s[3][2]+'"><span class="num">'+s[0]+'</span><h4>'+s[1]+'</h4><p>'+s[2]+'</p></div>';}).join('');
+  return '<div class="page"><div class="wrap pad-b"><header class="sec-head"><h1 class="title-xl">ميزان مِهن</h1><p class="lead">قارن بين تخصصاتك، واكتشف الفروق التي تساعدك على اتخاذ قرار واعٍ.</p></header>'+
+    box('ما هي الأداة؟','<p>ميزان مِهن يقارن بين تخصصين من جوانب متعددة، ويعرض نتيجة موزونة استرشادية مع توضيح تفاصيل كل معيار.</p>')+
+    box('كيف تستخدم ميزان مِهن؟','<div class="how">'+steps+'</div>')+
+    '<section class="tool" id="tool"><h2>قارن بين تخصصين</h2><div class="pickers"><label>التخصص الأول<select id="selA">'+optionList(balState.a)+'</select></label><label>التخصص الثاني<select id="selB">'+optionList(balState.b)+'</select></label></div><div id="cmp-out" aria-live="polite"></div></section>'+
+  '</div></div>';
+}
+function bindBalance(){
+  var a=document.getElementById('selA'), b=document.getElementById('selB');
+  if(a)a.addEventListener('change',function(){balState.a=a.value;renderCompare();});
+  if(b)b.addEventListener('change',function(){balState.b=b.value;renderCompare();});
+  renderCompare();
+}
+
+var FUTURE_DATA = {
+  early:[
+    ['الذكاء الاصطناعي وعلوم البيانات','تتوسع تطبيقات تحليل البيانات والأتمتة ودعم القرار في قطاعات متعددة.','علوم الحاسب، الذكاء الاصطناعي، الإحصاء'],
+    ['الأمن السيبراني','يزداد الاعتماد على الخدمات الرقمية، ما يجعل حماية الأنظمة والبيانات مجالاً مهماً.','الأمن السيبراني، علوم الحاسب، الشبكات'],
+    ['المعلوماتية الصحية','تتوسع السجلات الصحية الرقمية وتحليل البيانات وتكامل التقنية مع الرعاية الصحية.','المعلوماتية الصحية، علوم الحاسب، التخصصات الصحية']
+  ],
+  middle:[
+    ['الذكاء الاصطناعي والأنظمة الذكية','قد تتوسع تطبيقات الأنظمة الذكية في الصناعة والخدمات والنقل والتعليم.','الذكاء الاصطناعي، علوم الحاسب، هندسة الحاسب'],
+    ['الطاقة المتجددة والاستدامة','التحول في الطاقة وكفاءة الموارد يفتحان مجالات للتصميم والتشغيل والتحليل.','الهندسة الكهربائية، الطاقة المتجددة، العلوم البيئية'],
+    ['الرعاية الصحية والتقنيات الطبية','استمرار الحاجة إلى الرعاية وتطور أجهزة وتقنيات التشخيص والعلاج.','الطب، علوم الأشعة، الهندسة الطبية']
+  ],
+  late:[
+    ['الذكاء الاصطناعي والروبوتات','قد تصبح الأنظمة المستقلة والروبوتات أكثر حضوراً في الأعمال والخدمات.','الذكاء الاصطناعي، الروبوتات، الهندسة الكهربائية'],
+    ['الاستدامة وإدارة الموارد','تزداد أهمية كفاءة المياه والطاقة والمواد والتكيف مع التغيرات البيئية.','العلوم البيئية، الهندسة، الجيولوجيا'],
+    ['الصحة الرقمية والطب الدقيق','قد تتوسع الحلول التي تجمع البيانات والتقنيات مع الرعاية الصحية الشخصية.','المعلوماتية الصحية، علوم البيانات، التخصصات الصحية']
+  ]
+};
+function pageFuture(){
+  var years=Array.from({length:11},function(_,i){return 2034+i;});
+  return '<div class="page" style="--page-tint:#EDEBFF"><div class="wrap pad-b"><header class="sec-head"><h1 class="title-xl">مِهن المستقبل</h1><p class="lead">خطّط مبكراً، واستكشف المجالات التي قد تزداد أهميتها في السنوات القادمة.</p></header>'+
+    box('عن الأداة','<p>اختر سنة تخرجك المتوقعة من الجامعة، لتتعرف على ثلاثة مجالات قد تتوسع فرصها المهنية وفق اتجاهات عامة مثل التحول الرقمي والطاقة والرعاية الصحية.</p>')+
+    '<section class="tool-panel"><h2 class="tool-title">متى تتوقع التخرج؟</h2><div class="pickers"><label>سنة التخرج من الجامعة<select id="future-year">'+years.map(function(y){return '<option value="'+y+'">'+y+'</option>';}).join('')+'</select></label></div><div class="tool-actions"><button class="btn" type="button" id="future-show">استكشف التخصصات</button></div><div id="future-results" aria-live="polite"></div></section>'+
+    '<p class="small-note">هذه قراءة استشرافية تعليمية وليست تنبؤاً مؤكداً أو قائمة رسمية بالوظائف الأكثر طلباً. لا يمكن الجزم بترتيب سوق العمل في 2034–2044؛ راجع التقارير الرسمية عند اقتراب موعد التخرج.</p>'+
+  '</div></div>';
+}
+function bindFuture(){
+  var btn=document.getElementById('future-show'), sel=document.getElementById('future-year'), out=document.getElementById('future-results');
+  if(!btn||!sel||!out)return;
+  btn.addEventListener('click',function(){
+    var year=Number(sel.value), set=year<=2037?FUTURE_DATA.early:(year<=2040?FUTURE_DATA.middle:FUTURE_DATA.late);
+    out.innerHTML='<section class="result-card"><h3>مجالات تستحق الاستكشاف لخريج '+year+'</h3><p>هذه المجالات مرشحة للاهتمام بناءً على اتجاهات عامة، وليست ترتيباً مضموناً للوظائف.</p><div class="future-grid">'+set.map(function(item,i){
+      return '<article class="future-card"><span class="rank">'+(i+1)+'</span><h3>'+item[0]+'</h3><p>'+item[1]+'</p><p style="margin-top:10px"><strong>تخصصات مرتبطة:</strong> '+item[2]+'</p></article>';
+    }).join('')+'</div></section>';
+  });
+}
+
+function pageAbout(){
+  var li = ['اكتشاف التخصصات الجامعية والمهنية.','معرفة التخصصات المتوقع زيادة الطلب عليها.','مقارنة التخصصات واختيار الأنسب لك.','التعرف على المهن والفرص المستقبلية.']
+    .map(function(t){return '<li>'+SPARK+'<span>'+t+'</span></li>';}).join('');
+  return '<div class="page"><div class="wrap pad-b" style="max-width:820px">' +
+    '<header class="sec-head"><h1 class="title-xl">عن مهن</h1>'+DIVIDER+'</header>' +
+    box('من نحن؟',
+      '<p>مِهن هي منصة سعودية تهدف إلى مساعدة طلاب وطالبات المرحلة الثانوية في التخطيط لمستقبلهم الجامعي والمهني.</p>' +
+      '<p style="margin-top:12px">انطلقت فكرة مِهن من إيماننا بأن اختيار التخصص الجامعي خطوة مهمة تستحق الوعي والمعرفة.</p>' +
+      '<p style="margin-top:12px">نسعى إلى تسهيل رحلة اكتشاف التخصصات والمهن، وتقديم المعلومات بطريقة بسيطة ومنظمة.</p>') +
+    box('ماذا تقدم؟', '<ul class="bullets">'+li+'</ul>') +
+    '<p class="statement">مِهن .. اكتشف، قارن، وخطّط لمستقبلك بثقة.</p>' +
+  '</div></div>';
+}
+
+/* router */
+var app = document.getElementById('app');
+function route(){
+  var h = (location.hash || '#/home').replace(/^#\/?/, '');
+  var parts = h.split('/');
+  var page = parts[0] || 'home';
+  if (page === 'tool'){ return; }
+  var html, nav = page;
+  if (page === 'home') html = pageHome();
+  else if (page === 'compass') html = pageCompass();
+  else if (page === 'majors') html = pageMajors();
+  else if (page === 'major'){ html = pageMajor(parts[1]); nav = 'majors'; }
+  else if (page === 'balance') html = pageBalance();
+  else if (page === 'future') html = pageFuture();
+  else if (page === 'about') html = pageAbout();
+  else { html = pageHome(); nav = 'home'; }
+  app.innerHTML = html;
+  var links = document.querySelectorAll('[data-nav]');
+  for (var i=0;i<links.length;i++){
+    if (links[i].getAttribute('data-nav') === nav) links[i].setAttribute('aria-current','page');
+    else links[i].removeAttribute('aria-current');
+  }
+  var m = (page==='major' && byId(parts[1])) ? byId(parts[1]).name + ' - ' : '';
+  document.title = m + 'مِهن';
+  window.scrollTo(0,0);
+  if (page === 'balance') bindBalance();
+  if (page === 'compass') bindCompass();
+  if (page === 'future') bindFuture();
+}
+function bindBalance(){
+  var a = document.getElementById('selA'), b = document.getElementById('selB');
+  if (a) a.addEventListener('change', function(){ balState.a = a.value; renderCompare(); });
+  if (b) b.addEventListener('change', function(){ balState.b = b.value; renderCompare(); });
+  var s = document.querySelector('[data-scroll]');
+  if (s) s.addEventListener('click', function(e){ e.preventDefault(); var t = document.getElementById('tool'); if (t) t.scrollIntoView({behavior:'smooth'}); });
+  renderCompare();
+}
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
